@@ -1,0 +1,32 @@
+# 1. Ignora TUDO por padrão
+*
+
+# 2. Abre exceções para os arquivos de configuração do Docker e Git
+!docker-compose.yml
+!Dockerfile
+!.gitignore
+!.env.example
+!nginx/
+!nginx/**
+
+# 3. Abre exceção para a pasta de conteúdo, mas com filtros:
+!wp-content/
+
+# 4. DENTRO do wp-content, ignoramos o que o WordPress gera sozinho:
+wp-content/languages/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/uploads/       # JAMAIS envie uploads (fotos) para o Git
+
+# 5. Opcional: Ignorar plugins e temas de terceiros (que você baixa do repositório oficial)
+# Descomente as linhas abaixo se quiser versionar APENAS o que você criou
+# wp-content/plugins/*
+# !wp-content/plugins/meu-plugin-customizado/
+# wp-content/themes/*
+# !wp-content/themes/meu-tema-filho/
+
+# 6. Ignora arquivos locais e sensíveis
+.env
+db_data/
+*.sql
+.DS_Store

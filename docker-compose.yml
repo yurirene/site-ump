@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    env_file: .env
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init-db:/docker-entrypoint-initdb.d # Importa o SQL automaticamente
+
+  wordpress:
+    build: .            # Procura o Dockerfile na mesma pasta
+    restart: always
+    env_file: .env
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - wordpress_files:/var/www/html
+
+  nginx:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - wordpress_files:/var/www/html:ro     # Nginx lê arquivos do WP em modo leitura
+    depends_on:
+      - wordpress
+
+volumes:
+  db_data:          # Onde o banco de dados vive (não vai pro Git)
+  wordpress_files:  # Onde o core do WP vive (não vai pro Git)
