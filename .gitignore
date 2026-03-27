@@ -1,19 +1,7 @@
-# 1. Ignora TUDO por padrão
-*
-
-# 2. Abre exceções para os arquivos de configuração do Docker e Git
-!docker-compose.yml
-!Dockerfile
-!.gitignore
-!.env.example
-!nginx/
-!nginx/**
-!init-db/
-!wp-content/
-!wp-content/.gitkeep
-wp-content/*
-!wp-content/.gitkeep
-!php/
-
-
+# Variáveis de ambiente locais (nunca commitar)
 .env
+
+# WordPress: não versionar uploads/plugins gerados; manter só .gitkeep para estrutura de pastas
+wp-content/**
+!wp-content/**/
+!wp-content/**/.gitkeep
