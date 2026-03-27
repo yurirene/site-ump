@@ -3,5 +3,4 @@
 
 # WordPress: não versionar uploads/plugins gerados; manter só .gitkeep para estrutura de pastas
 wp-content/**
-!wp-content/**/
-!wp-content/**/.gitkeep
+!wp-content/.gitkeep
