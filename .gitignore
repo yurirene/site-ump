@@ -1,6 +1,10 @@
 # Variáveis de ambiente locais (nunca commitar)
 .env
 
+# Dados do MySQL (bind mount em ./mysql-data — não versionar)
+mysql-data/
+
 # WordPress: não versionar uploads/plugins gerados; manter só .gitkeep para estrutura de pastas
 wp-content/**
-!wp-content/.gitkeep
+!wp-content/**/
+!wp-content/**/.gitkeep
