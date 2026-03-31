@@ -9,5 +9,7 @@ site ump
 
 ## baixar conteudo
 ```bash
-curl -LJO "https://drive.usercontent.google.com/download?id=1Lpvs0yfMBkLSe7ps4wIhngb10JpeoXb9&confirm=t"
+curl -LJO "https://drive.usercontent.google.com/download?id=1oe1Mdk-Qc2D4alYKBWFa-eUB6E1EI9oE&confirm=t"
+
+unzip wp-content.zip
 ```
